@@ -64,3 +64,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+// звук двигуна
+document.addEventListener('DOMContentLoaded', () => {
+    const image = document.querySelector('.clickable-img');
+    const audio = document.getElementById('audioPlayer');
+
+    if (image && audio) {
+        image.addEventListener('click', () => {
+            audio.play(); // Відтворюємо музику при кліку
+        });
+    } else {
+        console.error('Image or audio element not found');
+    }
+});
