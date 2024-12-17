@@ -68,14 +68,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // звук двигуна
 document.addEventListener('DOMContentLoaded', () => {
-    const image = document.querySelector('.clickable-img');
-    const audio = document.getElementById('audioPlayer');
+    const clickableImage = document.querySelector('.clickable-img img'); // Знаходимо зображення
+    const engineSound = document.getElementById('engineSound'); // Знаходимо аудіо
 
-    if (image && audio) {
-        image.addEventListener('click', () => {
-            audio.play(); // Відтворюємо музику при кліку
+    if (clickableImage && engineSound) {
+        clickableImage.addEventListener('click', () => {
+            // Перевірка, чи дозволяється відтворення
+            if (engineSound.paused) {
+                engineSound.currentTime = 0; // Почати звук спочатку
+                engineSound.play()
+                    .catch(error => console.error('Audio playback failed:', error));
+            }
         });
     } else {
-        console.error('Image or audio element not found');
+        console.error('Image or audio element not found.');
     }
 });
