@@ -222,6 +222,11 @@
         left: -230px;
     }
 }
+@media (max-width: 640px) {
+    .overlay-image {
+        left: -188px;
+    }
+}
 
 /* Перелом для екранів до 576px */
 @media (max-width: 576px) {
