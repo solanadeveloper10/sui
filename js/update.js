@@ -84,3 +84,17 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Image or audio element not found.');
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const overlayImage = document.querySelector('.overlay-image'); // Знаходимо накладене зображення
+    const audioPlayer = document.getElementById('audioPlayer'); // Знаходимо аудіоплеєр
+
+    if (overlayImage && audioPlayer) {
+        overlayImage.addEventListener('click', () => {
+            audioPlayer.currentTime = 0; // Почати відтворення з початку
+            audioPlayer.play(); // Відтворюємо аудіо
+        });
+    } else {
+        console.error('Overlay image or audio file not found');
+    }
+});

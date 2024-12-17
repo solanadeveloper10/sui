@@ -127,3 +127,79 @@
 .width{
     width: 3000px!important;
 }
+
+
+.rotating-cubes {
+    position: relative;
+    display: inline-block; /* Для компактного розміщення тексту */
+    color: #000; /* Колір тексту */
+    text-decoration: none; /* Забрати підкреслення */
+    font-size: 18px; /* Розмір шрифту */
+    font-weight: bold; /* Жирний шрифт */
+    padding: 0 40px; /* Відступи для місця під кубики */
+}
+
+/* Кубик зліва */
+.rotating-cubes::before,
+.rotating-cubes::after {
+    content: ""; /* Псевдоелемент */
+    position: absolute;
+    top: 50%; /* Розташування по вертикалі */
+    transform: translateY(-50%) rotate(0deg);
+    width: 24px; /* Розмір SVG */
+    height: 24px;
+    background-image: url('images/10.svg'); /* Шлях до SVG */
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: spin 3s linear infinite; /* Анімація обертання */
+}
+
+/* Лівий кубик */
+.rotating-cubes::before {
+    left: -40px; /* Відступ ліворуч */
+}
+
+/* Правий кубик */
+.rotating-cubes::after {
+    right: -40px; /* Відступ праворуч */
+}
+
+/* Анімація обертання */
+@keyframes spin {
+    from {
+        transform: translateY(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+
+/* Контейнер для позиціонування */
+.image-container {
+    position: relative; /* Позиціонування для дочірніх елементів */
+    display: inline-block;
+}
+
+.base-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay-image {
+    position: absolute;
+    top: 0;
+    left: -223px;
+    width: 167%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0; /* Початкова прозорість */
+    transition: opacity 0.3s ease; /* Плавний перехід */
+
+        cursor: pointer; /* Курсор при наведенні */
+}
+
+.image-container:hover .overlay-image {
+    opacity: 1; /* Зміна прозорості при ховері */
+}
