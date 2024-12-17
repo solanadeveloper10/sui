@@ -200,6 +200,49 @@
         cursor: pointer; /* Курсор при наведенні */
 }
 
+/* Перелом для екранів до 1200px */
+@media (max-width: 1200px) {
+    .overlay-image {
+        /* left: -150px;
+        width: 150%; */
+    }
+}
+
+/* Перелом для екранів до 992px */
+@media (max-width: 992px) {
+    .overlay-image {
+        /* left: -100px;
+        width: 130%; */
+    }
+}
+
+/* Перелом для екранів до 768px */
+@media (max-width: 768px) {
+    .overlay-image {
+        left: -230px;
+    }
+}
+
+/* Перелом для екранів до 576px */
+@media (max-width: 576px) {
+    .overlay-image {
+        left: -188px;
+    }
+}
+@media (max-width: 490px) {
+    .overlay-image {
+        left: -145px;
+    }
+}
+
+/* Перелом для дуже маленьких екранів (до 375px) */
+@media (max-width: 375px) {
+    .overlay-image {
+        left: -130px;
+
+    }
+}
+
 .image-container:hover .overlay-image {
     opacity: 1; /* Зміна прозорості при ховері */
 }
